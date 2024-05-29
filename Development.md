@@ -1,4 +1,4 @@
-# OmniBrowse Development Guide
+# OmniBrowser Development Guide
 
 ## Feature List
 
@@ -17,7 +17,7 @@
   - DuckDuckGo
   - Tor
 - **Tab Highlighting**: The currently selected browser tab is highlighted.
-- **URL Change**: Each tab changes the main URL of the Omnibrowser site to reflect the selected browser (e.g., `/chrome`, `/safari`).
+- **URL Change**: Each tab changes the main URL of the OmniBrowser site to reflect the selected browser (e.g., `/chrome`, `/safari`).
 
 #### Bottom Level
 - **Search Bar**: A search input bar that spans the center of the screen.
@@ -42,7 +42,7 @@
 ### URL Handling within Browser Tabs
 - **Tab-Specific URL Bar**: 
   - Each tab displays a URL bar directly underneath the navigation bar and above the results, showing the URL of the current page within that tab.
-  - Navigation within a tab (clicking on links in the results) updates this tab-specific URL bar but does not change the main Omnibrowser URL.
+  - Navigation within a tab (clicking on links in the results) updates this tab-specific URL bar but does not change the main OmniBrowser URL.
   - Each tab's URL bar includes left and right arrows to navigate through its individual URL history.
   - Submitting a search in the Omni search bar resets the histories of all individual browser tabs.
 
