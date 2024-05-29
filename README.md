@@ -1,11 +1,11 @@
-# OmniBrowse
+# OmniBrowser
 ## The browser that searches all browser engines for the best results.
 
-OmniBrowse is a web application designed to browse multiple search engines simultaneously with ease. The application allows you to search once and view the results from different search engines in dedicated tabs.
+OmniBrowser is a web application designed to browse multiple search engines simultaneously with ease. The application allows you to search once and view the results from different search engines in dedicated tabs.
 
 ## Purpose
 
-The purpose of OmniBrowse is to provide a seamless browsing experience across multiple search engines, allowing users to quickly compare results and navigate through different engines without losing their place.
+The purpose of OmniBrowser is to provide a seamless browsing experience across multiple search engines, allowing users to quickly compare results and navigate through different engines without losing their place.
 
 ## Features
 
@@ -25,11 +25,11 @@ The purpose of OmniBrowse is to provide a seamless browsing experience across mu
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/TheCyberLocal/OmniBrowse.git
+    git clone https://github.com/TheCyberLocal/OmniBrowser.git
     ```
 2. Navigate to the project directory:
     ```bash
-    cd OmniBrowse
+    cd OmniBrowser
     ```
 3. Install the dependencies:
     ```bash
@@ -43,7 +43,7 @@ Start the development server:
 npm start
 ```
 
-Open your browser and go to `http://localhost:5173` to start using OmniBrowse.
+Open your browser and go to `http://localhost:5173` to start using OmniBrowser.
 
 ## Usage
 
@@ -52,4 +52,4 @@ Open your browser and go to `http://localhost:5173` to start using OmniBrowse.
 3. Each browser tab has its own URL and history, which is reset after each new search.
 4. Click into any of the results within each browser tab, and switch to another tab without losing your place in the original tab.
 
-Enjoy a seamless browsing experience with OmniBrowse!
+Enjoy a seamless browsing experience with OmniBrowser!
