@@ -10,7 +10,7 @@ The purpose of OmniBrowser is to provide a seamless browsing experience across m
 ## Features
 
 - **Unified Search Bar**: Enter your search query in the Omni search bar and press enter to see results from all included search engines.
-- **Browser Tabs**: Click on each browser tab (Omni, Chrome, Safari, Edge, Firefox, Opera, Vivaldi, Brave, DuckDuckGo, Tor) to view search results from that specific engine.
+- **Browser Tabs**: Click on each browser tab (Omni, Chrome, Edge, Brave, Firefox, DuckDuckGo, Ask, and Aol) to view search results from that specific engine.
 - **Omni Tab**: The Mother Of All Browsers (MOAB), returns the top result of each browser.
 - **Tab-Specific URLs**: Each browser tab has its own URL bar and history, which is reset with each new search.
 - **Persistent Navigation**: Navigate through search results within each tab without losing your place when switching between tabs.

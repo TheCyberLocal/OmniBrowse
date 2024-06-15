@@ -8,15 +8,14 @@
 - **Browser Tabs**: Tabs for each browser in the following order:
   - Omni
   - Chrome
-  - Safari
   - Edge
-  - Firefox
-  - Opera
-  - Vivaldi
   - Brave
+  - Firefox
   - DuckDuckGo
+  - Ask
+  - Aol
 - **Tab Highlighting**: The currently selected browser tab is highlighted.
-- **URL Change**: Each tab changes the main URL of the OmniBrowser site to reflect the selected browser (e.g., `/chrome`, `/safari`).
+- **URL Change**: Each tab changes the main URL of the OmniBrowser site to reflect the selected browser (e.g., `/chrome`, `/edge`).
 
 #### Bottom Level
 - **Search Bar**: A search input bar that spans the center of the screen.
@@ -65,15 +64,20 @@ OmniBrowse/
 │   ├── config/
 │   │   └── config.py
 │   ├── controllers/
+│   │   ├── __init__.py
 │   │   └── search_controller.py
 │   ├── models/
+│   │   ├── __init__.py
 │   │   └── search_result.py
 │   ├── routes/
+│   │   ├── __init__.py
 │   │   └── search_routes.py
 │   ├── services/
+│   │   ├── __init__.py
 │   │   └── search_service.py
 │   ├── utils/
+│   │   ├── __init__.py
 │   │   └── fetch_utils.py
 │   ├── app.py
-│   ├── requirements.txt
+│   └── requirements.txt
 └── README.md
