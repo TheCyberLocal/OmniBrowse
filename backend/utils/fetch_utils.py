@@ -1,32 +1,45 @@
-import requests
-from bs4 import BeautifulSoup
 from config.config import Config
 import urllib.parse
+import requests
+import re
 
-def fetch_search_results(url, start):
-    response = requests.get(url)
+def fetch_unparsed_results(engine, query):
+    search_url = Config.SEARCH_ENGINES[engine] + query
+    response = requests.get(search_url)
     if response.status_code != 200:
         raise ValueError("Failed to fetch search results")
+    return response.content.decode('latin-1')
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    raw_links = [urllib.parse.unquote(a['href']).split('/url?q=')[1] for a in soup.find_all('a', href=True) if 'url?q=' in a['href']]
-    links = []
-    seen_domains = set()
 
-    engine_domains = Config.SEARCH_DOMAINS  # Add more if needed
+def parse_html(html):
+    # Negated Character Parsing
+    # http or https and one or more characters, not including (?&#:@"').
+    url_pattern = re.compile(r'https?:\/{2}[^\s?&#:@"\\]+')
 
-    for link in raw_links:
-        if link.startswith('http') or link.startswith('https'):
-            full_url = link.split('&sa=')[0]
+    # Matched Character Parsing
+    # http or https and one or more A-Z, a-z, 0-9, or the five symbols (./%-_).
+    # url_pattern = re.compile(r'https?:\/{2}[\w\.\-\%\/]+')
+
+    decoded_urls = []
+    seen_second_domains = set()
+    for encoded_url in url_pattern.findall(html):
+        decoded_url = urllib.parse.unquote(encoded_url)
+
+        # https://www.google.com/search
+        # ['https:', '','www.google.com', 'search']
+        domain = decoded_url.split('/')[2]
+
+        #     www    .     google   .    com
+        # {subdomain}.{second-level}.{top-level}
+        #   interview   .    io
+        # {second-level}.{top-level}
+        if domain.count('.') == 1:
+            second_domain = domain[:domain.find('.')]
         else:
-            full_url = urllib.parse.urljoin(url, link)
+            second_domain = domain[domain.find('.') + 1:domain.rfind('.')]
 
-        parsed_url = urllib.parse.urlparse(full_url)
-        domain = parsed_url.netloc
+        if second_domain not in seen_second_domains:
+            decoded_urls.append(decoded_url)
+            seen_second_domains.add(second_domain)
 
-        if domain not in seen_domains and domain not in engine_domains:
-            links.append(full_url)
-            seen_domains.add(domain)
-
-    results = {i + start + 1: link for i, link in enumerate(links[start:start + 5])}
-    return results
+    return decoded_urls
