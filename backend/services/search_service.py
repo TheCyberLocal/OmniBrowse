@@ -1,12 +1,11 @@
-
-from utils.fetch_utils import fetch_unparsed_results, parse_html
 from config.config import Config
+from utils.fetch_utils import fetch_raw_results
+from utils.parse_utils import parse_html
 
 def fetch_results(engine, query, start):
     if engine not in Config.SEARCH_ENGINES:
         raise ValueError("Invalid browser engine specified")
-    raw_html = fetch_unparsed_results(engine, query)
-    print(raw_html)
-    links = parse_html(raw_html)
-    results = {i + start + 1: link for i, link in enumerate(links[:5])}
-    return results
+    raw_html = fetch_raw_results(engine, query)
+    results = parse_html(engine, raw_html)
+    compiled_results = {i + start: link for i, link in enumerate(results[start - 1:start + 4])}
+    return compiled_results

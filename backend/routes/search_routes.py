@@ -1,13 +1,12 @@
-
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request
 from controllers.search_controller import handle_search
 
 search_bp = Blueprint('search', __name__)
 
-@search_bp.route('/<browser>', methods=['GET'])
-def search(browser):
-    query = request.args.get('search_query')
-    start = int(request.args.get('start', 0))
+@search_bp.route('/<engine>', methods=['GET'])
+def search(engine):
+    query = request.args.get('query')
+    start = int(request.args.get('start', 1))
     if not query:
-        return jsonify({"error": "search_query parameter is required"}), 400
-    return handle_search(browser, query, start)
+        return {"error": "<query> parameter is required"}, 400
+    return handle_search(engine, query, start)

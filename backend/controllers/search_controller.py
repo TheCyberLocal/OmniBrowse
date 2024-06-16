@@ -1,10 +1,8 @@
-
-from flask import jsonify
 from services.search_service import fetch_results
 
-def handle_search(browser, query, start):
+def handle_search(engine, query, start):
     try:
-        results = fetch_results(browser, query, start)
-        return jsonify(results)
+        results = fetch_results(engine, query, start)
+        return results
     except ValueError as e:
-        return jsonify({"error": str(e)}), 400
+        return {"error": str(e)}, 400
