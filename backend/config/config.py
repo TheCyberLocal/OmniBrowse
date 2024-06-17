@@ -1,5 +1,6 @@
 class Config:
     DEBUG = True
+    SUBTITLE_LENGTH = 256
     SEARCH_ENGINES = {
         'google': 'https://www.google.com/search?q=',
         'bing': 'https://www.bing.com/search?q=',

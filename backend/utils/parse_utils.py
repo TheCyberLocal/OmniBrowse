@@ -1,6 +1,25 @@
+from config.config import Config
 from bs4 import BeautifulSoup
 import urllib.parse
 import re
+
+
+def parse_site_details(html):
+    soup = BeautifulSoup(html, 'html.parser')
+
+    subtitle = ''
+    paragraphs = soup.find_all('p')
+    for paragraph in paragraphs:
+        text = paragraph.get_text().strip()
+        if text and "Your browser is not supported." not in text:
+            subtitle += text + ' '
+            if len(subtitle) > Config.SUBTITLE_LENGTH:
+                subtitle = subtitle[:Config.SUBTITLE_LENGTH]
+                subtitle = subtitle[:subtitle.rfind(' ')]
+                subtitle += '...'
+                break
+
+    return { 'subtitle': subtitle }
 
 def parse_search_query(engine, html):
     if engine == 'google':
