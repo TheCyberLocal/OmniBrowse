@@ -5,15 +5,13 @@ OmniBrowser is a web application designed to browse multiple search engines simu
 
 ## Purpose
 
-The purpose of OmniBrowser is to provide a seamless browsing experience across multiple search engines, allowing users to quickly compare results and navigate through different engines without losing their place.
+The purpose of OmniBrowser is to provide a seamless browsing experience across a variety of search engines simultaneously.
 
 ## Features
 
 - **Unified Search Bar**: Enter your search query in the Omni search bar and press enter to see results from all included search engines.
-- **Browser Tabs**: Click on each browser tab (Omni, Chrome, Edge, Brave, Firefox, DuckDuckGo, Ask, and Aol) to view search results from that specific engine.
-- **Omni Tab**: The Mother Of All Browsers (MOAB), returns the top result of each browser.
-- **Tab-Specific URLs**: Each browser tab has its own URL bar and history, which is reset with each new search.
-- **Persistent Navigation**: Navigate through search results within each tab without losing your place when switching between tabs.
+- **Browser Tabs**: Click on each browser tab (Omni, Google, Bing, Brave, Yahoo, DuckDuckGo, Ask, and Aol) to view search results from that specific engine.
+- **Omni Tab**: The Mother Of All Browsers (MOAB), returns the combined top results of all browsers.
 
 ## Getting Started
 
@@ -23,22 +21,24 @@ The purpose of OmniBrowser is to provide a seamless browsing experience across m
 
 ### Installation
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/TheCyberLocal/OmniBrowser.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd OmniBrowser
-    ```
-3. Install the dependencies:
-    ```bash
-    npm install
-    ```
+Clone and Install the dependencies:
+```bash
+git clone https://github.com/TheCyberLocal/OmniBrowser.git
+cd OmniBrowser/backend
+pip install -r requirements.txt
+cd ../frontend
+npm install
+cd ..
+```
 
 ### Running the Application
 
-Start the development server:
+Navigate to the backend and run the startup:
+```bash
+python app.py
+```
+
+Navigate to the frontend and run the startup:
 ```bash
 npm start
 ```
@@ -48,8 +48,7 @@ Open your browser and go to `http://localhost:5173` to start using OmniBrowser.
 ## Usage
 
 1. Enter your search query in the Omni search bar and press enter.
-2. Click on each browser tab to view its results for the search.
-3. Each browser tab has its own URL and history, which is reset after each new search.
-4. Click into any of the results within each browser tab, and switch to another tab without losing your place in the original tab.
+2. Click on each browser tab to view its results for the specific engine.
+3. Click on any result within any browser tab to open the website.
 
 Enjoy a seamless browsing experience with OmniBrowser!
