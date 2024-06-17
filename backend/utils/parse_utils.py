@@ -37,6 +37,8 @@ def parse_chrome_html(html):
             div = h3.find('div')
             if div:
                 title = div.get_text()
-                results.append({ "title": title, "link": link })
+
+                if link and title:
+                    results.append({ "title": title, "link": link })
 
     return results

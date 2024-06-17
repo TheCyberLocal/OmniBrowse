@@ -7,5 +7,5 @@ def fetch_results(engine, query, start):
         raise ValueError("Invalid browser engine specified")
     raw_html = fetch_raw_results(engine, query)
     results = parse_html(engine, raw_html)
-    compiled_results = {i + start: link for i, link in enumerate(results[start - 1:start + 4])}
+    compiled_results = {i + start: link for i, link in enumerate(results)}
     return compiled_results
