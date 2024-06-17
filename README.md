@@ -1,4 +1,4 @@
-# OmniBrowser
+# OmniBrowser - NOTE: *Still Under Development*
 ## The browser that searches all browser engines for the best results.
 
 OmniBrowser is a web application designed to browse multiple search engines simultaneously with ease. The application allows you to search once and view the results from different search engines in dedicated tabs.
