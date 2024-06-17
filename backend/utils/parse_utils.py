@@ -3,8 +3,8 @@ import urllib.parse
 import re
 
 def parse_html(engine, html):
-    if engine == 'chrome':
-        return parse_chrome_html(html)
+    if engine == 'google':
+        return parse_google_html(html)
 
 def parse_href(raw_href):
     # Negated Character Parsing
@@ -19,7 +19,7 @@ def parse_href(raw_href):
     else:
         return None
 
-def parse_chrome_html(html):
+def parse_google_html(html):
     soup = BeautifulSoup(html, 'html.parser')
     results = []
 
