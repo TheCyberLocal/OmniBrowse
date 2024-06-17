@@ -2,11 +2,11 @@ from bs4 import BeautifulSoup
 import urllib.parse
 import re
 
-def parse_html(engine, html):
+def parse_search_query(engine, html):
     if engine == 'google':
-        return parse_google_html(html)
+        return parse_google_search(html)
 
-def parse_href(raw_href):
+def parse_href_for_link(raw_href):
     # Negated Character Parsing
     # http or https and one or more characters, not including (?&#:@"').
     url_match = re.search(r'https?:\/\/[^\s?&#:@"\\]+', raw_href)
@@ -19,7 +19,7 @@ def parse_href(raw_href):
     else:
         return None
 
-def parse_google_html(html):
+def parse_google_search(html):
     soup = BeautifulSoup(html, 'html.parser')
     results = []
 
@@ -32,7 +32,7 @@ def parse_google_html(html):
         if h3:
             # Extract the href attribute from the <a> tag
             a_tag_href = a['href']
-            link = parse_href(a_tag_href)
+            link = parse_href_for_link(a_tag_href)
             # Extract the text within the <div> inside the <h3> element
             div = h3.find('div')
             if div:
