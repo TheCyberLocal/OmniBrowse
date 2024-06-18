@@ -5,6 +5,9 @@ from utils.parse_utils import parse_search_query, parse_site_details
 def fetch_results(engine, query, start):
     if engine not in Config.SEARCH_ENGINES:
         raise ValueError("Invalid browser engine specified")
+    query = query if query else f'Latest news about {engine}'
+    start = abs(start or 1)
+
     html = fetch_search_query(engine, query)
     results_list = parse_search_query(engine, html)[:5]
     compile_result_details(results_list)

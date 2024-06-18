@@ -7,6 +7,6 @@ def fetch_search_query(engine, query):
 
 def fetch_url(search_url):
     response = requests.get(search_url)
-    if response.status_code != 200:
-        raise ValueError("Failed to fetch search results")
-    return response.content.decode('latin-1')
+    if response.ok:
+        return response.content.decode('latin-1')
+    raise ValueError("Failed to fetch search results")
